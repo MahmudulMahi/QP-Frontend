@@ -23,10 +23,14 @@ import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
 
 const Navber = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenUserDropdown, setIsOpenUserDropdown] = useState(false);
+  const [isOpenDropdownSm, setIsOpenDropdownSm] = useState(false);
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setIsOpenUserDropdown(!isOpenUserDropdown);
+  };
+  const toggleDropdownSm = () => {
+    setIsOpenDropdownSm(!isOpenDropdownSm);
   };
   return (
     // navbar bg-black flex justify-between items-center
@@ -49,35 +53,47 @@ const Navber = () => {
         <NavLink><img className='w-6 h-6' src={smallicon3} alt="" /></NavLink>
         <NavLink><img className='w-6 h-6' src={smallicon4} alt="" /></NavLink>
         <NavLink><img className='w-6 h-6' src={smallicon5} alt="" /></NavLink>
-        <NavLink><img className='w-6 h-6' src={user} alt="" /></NavLink>
+        <button onClick={toggleDropdownSm} className="flex items-center">
+        <img className='w-6 h-6' src={user} alt="Profile" />
+      </button>
+      {isOpenDropdownSm && (
+        <div className="absolute right-0 mt-40 w-48 bg-white border rounded shadow-lg">
+          <NavLink to="/login" className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Login</NavLink>
+          <NavLink to="/registration" className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Register</NavLink>
+        </div>
+      )}
       </div>
 
 
 
       {/* Large device view */}
-      <div className="hidden lg:flex justify-between w-full">
+      <div className="hidden  lg:flex justify-between w-full">
         <div className="flex items-center">
           <img className='mr-6' src={logo} alt="" />
-          <img className='hidden lg:block' src={searchber} alt="" />
+          <img className='hidden lg:block w-80' src={searchber} alt="" />
         </div>
         <div className="navbar-center hidden lg:flex ">
-          <div className='flex space-x-[80px] ml-64'>
+          <div className='flex space-x-[50px] ml-64'>
         
             <NavLink
               to="/"
               className={({ isActive }) =>
-                isActive ? 'border-b-4 border-[#307777]' : ''
+                isActive ? 'border-b-4 border-[#307777] ' : ''
               }
             >
+              {/* btn btn-ghost */}
               <button className="btn btn-ghost">
-                <img className='w-6 h-6 mb-5' src={homebtn} alt="Home" />
+                <img className='w-6 h-6 mb-1' src={homebtn} alt="Home" />
               </button>
             </NavLink>
-
-            <NavLink><img className='w-6 h-6' src={navicon1} alt="" /></NavLink>
-            <NavLink><img className='w-6 h-6' src={navicon2} alt="" /></NavLink>
-            <NavLink><img className='w-6 h-6' src={navicon3} alt="" /></NavLink>
-            <NavLink><img className='w-6 h-6' src={navicon4} alt="" /></NavLink>
+            
+            <NavLink><button className="btn btn-ghost"><img className='w-6 h-6' src={navicon1} alt="" /></button></NavLink>
+            <NavLink><button className="btn btn-ghost"><img className='w-6 h-6' src={navicon2} alt="" /></button></NavLink>
+            
+            <NavLink><button className="btn btn-ghost"><img className='w-6 h-6' src={navicon3} alt="" /></button></NavLink>
+            
+            <NavLink><button className="btn btn-ghost"><img className='w-6 h-6' src={navicon4} alt="" /></button></NavLink>
+            
           </div>
         </div>
         <div className="navbar-end hidden lg:flex">
@@ -89,7 +105,7 @@ const Navber = () => {
         <img className='max-w-12 max-h-12' src={profile} alt="Profile" />
       </button>
 
-      {isOpen && (
+      {isOpenUserDropdown && (
         <div className="absolute  mt-12 w-36 bg-white border rounded shadow-lg">
          <Link to='/login'> <button className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Login</button></Link>
           <Link to='/registration'><button className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Register</button></Link>
