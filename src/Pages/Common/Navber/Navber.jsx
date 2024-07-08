@@ -19,32 +19,38 @@ import smallicon3 from "../../../assets/navberimg/Frame 36.png";
 import smallicon4 from "../../../assets/navberimg/Frame 35.png";
 import smallicon5 from "../../../assets/navberimg/Group 1000003341.png";
 import user from "../../../assets/navberimg/Ellipse 2 (1).png";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { useState } from "react";
 
 const Navber = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     // navbar bg-black flex justify-between items-center
     <div className=" lg:navbar bg-[#FFFFFF] justify-between items-center mt-4 ">
       {/* Small device view */}
-     
-        <div className="flex lg:hidden justify-between w-full">
-          <img className='mr-6 w-6' src={logo} alt="" />
-          <div className='flex space-x-4'>
-            <img src={plusebtn} alt="" />
-            <img src={searchbtn} alt="" />
-            <img src={plusebtn} alt="" />
-          </div>
+
+      <div className="flex lg:hidden justify-between w-full">
+        <img className='mr-6 w-6' src={logo} alt="" />
+        <div className='flex space-x-4'>
+          <img src={plusebtn} alt="" />
+          <img src={searchbtn} alt="" />
+          <img src={plusebtn} alt="" />
         </div>
-        
-        <div className="flex lg:hidden justify-between items-center space-x-2 mt-5">
-          <img className='w-6 h-6' src={homesmall} alt="" />
-          <img className='w-6 h-6' src={smallicon1} alt="" />
-          <img className='w-6 h-6' src={smallicon2} alt="" />
-          <img className='w-6 h-6' src={smallicon3} alt="" />
-          <img className='w-6 h-6' src={smallicon4} alt="" />
-          <img className='w-6 h-6' src={smallicon5} alt="" />
-          <img className='w-6 h-6' src={user} alt="" />
-        </div>
+      </div>
+
+      <div className="flex lg:hidden justify-between items-center space-x-2 mt-5 ">
+        <NavLink><img className='w-6 h-6' src={homesmall} alt="" /></NavLink>
+        <NavLink><img className='w-6 h-6' src={smallicon1} alt="" /></NavLink>
+        <NavLink><img className='w-6 h-6' src={smallicon2} alt="" /></NavLink>
+        <NavLink><img className='w-6 h-6' src={smallicon3} alt="" /></NavLink>
+        <NavLink><img className='w-6 h-6' src={smallicon4} alt="" /></NavLink>
+        <NavLink><img className='w-6 h-6' src={smallicon5} alt="" /></NavLink>
+        <NavLink><img className='w-6 h-6' src={user} alt="" /></NavLink>
+      </div>
 
 
 
@@ -56,18 +62,39 @@ const Navber = () => {
         </div>
         <div className="navbar-center hidden lg:flex ">
           <div className='flex space-x-[80px] ml-64'>
-            <Link><img className='w-6 h-6' src={homebtn} alt="" /></Link>
-            <Link><img className='w-6 h-6' src={navicon1} alt="" /></Link>
-            <Link><img className='w-6 h-6' src={navicon2} alt="" /></Link>
-            <Link><img className='w-6 h-6' src={navicon3} alt="" /></Link>
-            <Link><img className='w-6 h-6' src={navicon4} alt="" /></Link>
+        
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? 'border-b-4 border-[#307777]' : ''
+              }
+            >
+              <button className="btn btn-ghost">
+                <img className='w-6 h-6 mb-5' src={homebtn} alt="Home" />
+              </button>
+            </NavLink>
+
+            <NavLink><img className='w-6 h-6' src={navicon1} alt="" /></NavLink>
+            <NavLink><img className='w-6 h-6' src={navicon2} alt="" /></NavLink>
+            <NavLink><img className='w-6 h-6' src={navicon3} alt="" /></NavLink>
+            <NavLink><img className='w-6 h-6' src={navicon4} alt="" /></NavLink>
           </div>
         </div>
         <div className="navbar-end hidden lg:flex">
           <div className='flex space-x-4'>
             <img className='max-w-12 max-h-12' src={messenger} alt="" />
             <img className='max-w-12 max-h-12' src={notification} alt="" />
-            <img className='max-w-12 max-h-12' src={profile} alt="" />
+            {/* <img className='max-w-12 max-h-12' src={profile} alt="" /> */}
+            <button onClick={toggleDropdown} className="flex items-center">
+        <img className='max-w-12 max-h-12' src={profile} alt="Profile" />
+      </button>
+
+      {isOpen && (
+        <div className="absolute  mt-12 w-36 bg-white border rounded shadow-lg">
+         <Link to='/login'> <button className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Login</button></Link>
+          <Link to='/registration'><button className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Register</button></Link>
+        </div>
+      )}
           </div>
         </div>
       </div>
