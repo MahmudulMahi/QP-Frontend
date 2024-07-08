@@ -9,6 +9,7 @@ import menulogo6 from '../../../assets/homeimg/Box.png'
 import menulogo7 from '../../../assets/homeimg/Box_alt_light.png'
 import menulogo8 from '../../../assets/homeimg/Box_open_light.png'
 import MenuItem from '../../../components/Menuitem/MenuItem';
+import CarouselSection from '../Carousel/CarouselSection';
 
 
 const Home = () => {
@@ -38,6 +39,7 @@ const Home = () => {
       </div>
       <div className='col-span-2 '>
         <h2>news and friend list</h2>
+        <CarouselSection></CarouselSection>
       </div>
 
       <div className='col-span-4 '>
