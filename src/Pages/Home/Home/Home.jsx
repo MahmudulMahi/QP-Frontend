@@ -10,6 +10,8 @@ import menulogo7 from '../../../assets/homeimg/Box_alt_light.png'
 import menulogo8 from '../../../assets/homeimg/Box_open_light.png'
 import MenuItem from '../../../components/Menuitem/MenuItem';
 import CarouselSection from '../Carousel/CarouselSection';
+import PageMightLike from '../PageMightLike/PageMightLike';
+import PageMayKnow from '../PageMayKnow/PageMayKnow';
 
 
 const Home = () => {
@@ -40,6 +42,8 @@ const Home = () => {
       <div className='col-span-2 '>
         <h2>news and friend list</h2>
         <CarouselSection></CarouselSection>
+        <PageMightLike></PageMightLike>
+        <PageMayKnow></PageMayKnow>
       </div>
 
       <div className='col-span-4 '>
