@@ -12,6 +12,9 @@ import MenuItem from '../../../components/Menuitem/MenuItem';
 import CarouselSection from '../Carousel/CarouselSection';
 import PageMightLike from '../PageMightLike/PageMightLike';
 import PageMayKnow from '../PageMayKnow/PageMayKnow';
+import Sponsared from '../../../components/Sponsared/Sponsared';
+import FriendRequest from '../FriendRequest/FriendRequest';
+import Contact from '../Contact/Contact';
 
 
 const Home = () => {
@@ -40,17 +43,21 @@ const Home = () => {
 
       </div>
       <div className='col-span-2 '>
-        <h2>news and friend list</h2>
+       
         <CarouselSection></CarouselSection>
         <PageMightLike></PageMightLike>
         <PageMayKnow></PageMayKnow>
+        <Sponsared></Sponsared>
       </div>
 
       <div className='col-span-4 '>
-        <h2>post list</h2>
+      
       </div>
       <div className='col-span-2 '>
-        <h2>sponsord and friend request</h2>
+    
+        <Sponsared></Sponsared>
+        <FriendRequest></FriendRequest>
+        <Contact></Contact>
       </div>
 
 
