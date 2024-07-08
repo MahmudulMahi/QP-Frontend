@@ -21,16 +21,31 @@ const Registration = () => {
   // const [selectedCode, setSelectedCode] = useState(countryCodes[0].code);
 
   return (
-    <div className="hero bg-[#183a3ae0] min-h-screen ">
-      <div className="md:hero-content flex-col lg:flex-row">
-        <div className="text-center lg:text-left w-9/12">
-          <h1 className="text-xl md:text-5xl text-left font-bold text-white">Welcome to the first <br />  decentralised Social Network <br /> in the world</h1>
+    <div className="hero bg-[#183a3ae0] min-h-screen  ">
+      <div className="md:hero-content flex-col lg:flex-row p-2 mt-5 text-left">
+        {/* <div className="text-center lg:text-left w-9/12">
+          <h1 className="text-xl md:text-5xl  font-bold text-white">Welcome to the first <br />  decentralised Social Network <br /> in the world</h1>
           <p className="py-6 text-white">
             We are the only decentralised Social Network that gives opportunity to monetise your time <br /> even if you are a normal user who does't create any content and use the earning to buy <br /> any services or goods from the native marketplace.
           </p>
-          <button className=" bg-[#307777] px-8 py-4 rounded-md text-white ">Login Now!</button>
+          <button className=" bg-[#307777] px-8 py-4 rounded-md text-white text-left ">Login Now!</button>
+        </div> */}
+        <div className="w-9/12">
+          <h1 className="text-xl md:text-5xl font-bold text-white">
+            Welcome to the first <br />
+            decentralised Social Network <br />
+            in the world
+          </h1>
+          <p className="py-6 text-white">
+            We are the only decentralised Social Network that gives opportunity to monetise your time <br />
+            even if you are a normal user who doesn’t create any content and use the earning to buy <br />
+            any services or goods from the native marketplace.
+          </p>
+          <button className="bg-[#307777] px-8 py-4 rounded-md text-white">
+            Login Now!
+          </button>
         </div>
-        <div className=" bg-base-100  max-w-72 md:max-w-md shrink-0 shadow-2xl rounded-md">
+        <div className=" bg-base-100  max-w-72 md:max-w-md shrink-0 shadow-2xl rounded-md mt-5 md:mt-0">
           <form className="card-body">
             <p className='text-[#307777] font-bold text-lg'>Register Your Account</p>
             <div className='flex space-x-2'>
@@ -150,15 +165,15 @@ const Registration = () => {
                 <span className="label-text">Your Gender</span>
 
               </div>
-             
-                <select className=" border-[1px] border-current p-2 rounded-md w-full">
-                  <option disabled selected>Pick one</option>
-                  <option>Men</option>
-                  <option>Women</option>
-                  <option>Other</option>
 
-                </select>
-             
+              <select className=" border-[1px] border-current p-2 rounded-md w-full">
+                <option disabled selected>Pick one</option>
+                <option>Men</option>
+                <option>Women</option>
+                <option>Other</option>
+
+              </select>
+
 
             </label>
             <div className='flex '>
@@ -179,7 +194,7 @@ const Registration = () => {
               <p className="mx-auto">or sign up with</p>
               <hr className="border-gray-400 w-8 my-4" />
             </div>
-            <p className='text-center'>Already have an Account? <span className='text-xl text-[#307777] font-medium'>Login here</span></p>
+            <p className='text-center'>Already have an Account? <span className='text-2xl text-[#307777] font-medium'>Login here</span></p>
           </form>
         </div>
       </div>
