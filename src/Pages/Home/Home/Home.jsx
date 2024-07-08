@@ -15,11 +15,12 @@ import PageMayKnow from '../PageMayKnow/PageMayKnow';
 import Sponsared from '../../../components/Sponsared/Sponsared';
 import FriendRequest from '../FriendRequest/FriendRequest';
 import Contact from '../Contact/Contact';
+import PostSomething from '../PostSomething/PostSomething';
 
 
 const Home = () => {
   return (
-    <div className='grid grid-cols-10'>
+    <div className='grid grid-cols-12 gap-3'>
 
       <div className='col-span-2 '>
         {/* <h2>site link</h2> */}
@@ -50,8 +51,8 @@ const Home = () => {
         <Sponsared></Sponsared>
       </div>
 
-      <div className='col-span-4 '>
-      
+      <div className='col-span-6 '>
+<PostSomething></PostSomething>
       </div>
       <div className='col-span-2 '>
     
