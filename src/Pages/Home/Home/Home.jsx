@@ -16,6 +16,7 @@ import Sponsared from '../../../components/Sponsared/Sponsared';
 import FriendRequest from '../FriendRequest/FriendRequest';
 import Contact from '../Contact/Contact';
 import PostSomething from '../PostSomething/PostSomething';
+import SwiperForStory from '../SwiperFroStory/SwiperForStory';
 
 
 const Home = () => {
@@ -44,7 +45,7 @@ const Home = () => {
 
       </div>
       <div className='col-span-2 '>
-       
+
         <CarouselSection></CarouselSection>
         <PageMightLike></PageMightLike>
         <PageMayKnow></PageMayKnow>
@@ -52,10 +53,11 @@ const Home = () => {
       </div>
 
       <div className='col-span-6 '>
-<PostSomething></PostSomething>
+        <PostSomething></PostSomething>
+        <SwiperForStory></SwiperForStory>
       </div>
       <div className='col-span-2 '>
-    
+
         <Sponsared></Sponsared>
         <FriendRequest></FriendRequest>
         <Contact></Contact>
