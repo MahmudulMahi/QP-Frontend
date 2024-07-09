@@ -8,7 +8,7 @@ const PageMayKnow = () => {
   return (
     <div className=" bg-base-100  shadow-xl mt-5 rounded-md">
       <div className='flex items-center justify-between p-2'>
-        <p className=' text-[#307777] text-lg font-bold'>Pages You May Know </p>
+        <p className=' text-[#307777] text-sm font-medium'>Pages You May Know </p>
         <p className='text-[#307777]'>See All</p>
       </div>
 

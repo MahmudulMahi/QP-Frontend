@@ -17,11 +17,12 @@ import FriendRequest from '../FriendRequest/FriendRequest';
 import Contact from '../Contact/Contact';
 import PostSomething from '../PostSomething/PostSomething';
 import SwiperForStory from '../SwiperFroStory/SwiperForStory';
+import PostCard from '../PostCard/PostCard';
 
 
 const Home = () => {
   return (
-    <div className='grid grid-cols-12 gap-3'>
+    <div className='grid grid-cols-12 gap-2'>
 
       <div className='col-span-2 '>
         {/* <h2>site link</h2> */}
@@ -55,6 +56,7 @@ const Home = () => {
       <div className='col-span-6 '>
         <PostSomething></PostSomething>
         <SwiperForStory></SwiperForStory>
+        <PostCard></PostCard>
       </div>
       <div className='col-span-2 '>
 
