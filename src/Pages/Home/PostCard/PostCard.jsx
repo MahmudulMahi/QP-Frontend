@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import img from '../../../assets/homeimg/Ellipse 1773.png'
 import coverimg from '../../../assets/homeimg/Frame 34746.png'
 import { FaEarthAmericas } from "react-icons/fa6";
@@ -14,6 +14,11 @@ import { SlLike } from "react-icons/sl";
 
 
 const PostCard = () => {
+  const [isCommentSectionVisible, setIsCommentSectionVisible] = useState(false);
+
+  const toggleCommentSection = () => {
+    setIsCommentSectionVisible(!isCommentSectionVisible);
+  };
   return (
     <div className='bg-white shadow-xl mt-5 px-3'>
       <div className=' flex items-center justify-between '>
@@ -51,34 +56,51 @@ const PostCard = () => {
 
       <div className='flex justify-between items-center mt-3 px-4 border-b-2 pb-3'>
 
-        <div className='flex items-center text-2xl space-x-1'>
+        <div className='flex items-center text-xl space-x-1'>
           <SlLike />
           <button>like</button>
         </div>
         <div>
-          <button className='text-2xl'> Comment</button>
+          <button onClick={toggleCommentSection} className='text-xl'> Comment</button>
         </div>
         <div>
-          <button className='text-2xl'>Share</button>
+          <button className='text-xl'>Share</button>
         </div>
 
       </div>
       {/* comment section */}
-      <div className='px-4 mt-3'>
-        <button className='text-xl font-semibold pb-3'>View more Comments</button>
+      {isCommentSectionVisible && (
+        <div className='px-4 mt-3'>
+          <button className='text-xl font-semibold pb-3'>View more Comments</button>
 
-        <div className='flex gap-2'>
-          <img className='w-[40px] h-[40px]' src={commenticon} alt="" />
-          <div className='flex justify-center items-center'>
-            <div className='bg-[#F0F2F5] rounded-xl p-2'>
-              <p className='font-medium'>Nafiul islam</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a laoreet tortor. Duis malesuada nunc sed faucibus pellentes  Proin odio nulla, rhoncus in dictum in, tincidunt vel l</p>
+          <div className='flex gap-2'>
+            <img className='w-[40px] h-[40px]' src={commenticon} alt="" />
+            <div className='flex items-center'>
+              <div className=''>
+                <div className='bg-[#F0F2F5] rounded-xl p-2'>
+                  <p className='font-medium'>Nafiul islam</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a laoreet tortor. Duis malesuada nunc sed faucibus pellentes  Proin odio nulla, rhoncus in dictum in, tincidunt vel l</p>
+                </div>
+
+                {/* <img src={doticon} alt="" /> */}
+                <div className='flex justify-between px-6 '>
+                  <div className='flex space-x-3'>
+                    <p>1h</p>
+                    <p>Like</p>
+                    <p>Reply</p>
+                  </div>
+                  <div>
+                    <img className='-mt-4 ' src={statusicon} alt="" />
+                  </div>
+                </div>
+
+              </div>
+                  <img src={doticon} alt="" />
             </div>
-            <img src={doticon} alt="" />
           </div>
         </div>
-      </div>
-      <div className='flex justify-between px-16 '>
+      )}
+      {/* <div className='flex justify-between px-16 '>
         <div className='flex space-x-3'>
           <p>1h</p>
           <p>Like</p>
@@ -87,7 +109,7 @@ const PostCard = () => {
         <div>
           <img className='-mt-4 ' src={statusicon} alt="" />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
