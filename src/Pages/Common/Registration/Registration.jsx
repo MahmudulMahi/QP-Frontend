@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { BiShow } from 'react-icons/bi';
 import { CiCircleQuestion } from "react-icons/ci";
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Registration = () => {
+  const {createUser}=useContext(AuthContext)
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -16,6 +18,7 @@ const Registration = () => {
     month: '',
     year: ''
   });
+ 
 
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
   const months = [
@@ -31,10 +34,16 @@ const Registration = () => {
       [name]: value
     }));
   };
-
+  console.log(formData);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      createUser(formData.email,formData.password)
+      .then(result=>{
+        const user=result.user
+        console.log(user);
+      })
+      .catch(error => console.log(error))
       const response = await axios.post('http://localhost:5000/api/signup', formData);
       console.log('Registration successful:', response.data);
   
