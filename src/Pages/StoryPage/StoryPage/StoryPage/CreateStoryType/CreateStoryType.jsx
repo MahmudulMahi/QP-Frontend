@@ -25,12 +25,14 @@ const CreateStoryType = () => {
               <div className="max-w-md">
                 <div className='flex gap-2'>
                   <div>
-                    <Link to='text-story'>
+                    
                     <img src={textimg} alt="" />
-                    </Link>
+                    
                   </div>
                   <div>
+                  <Link to='text-story'>
                     <img src={photoimg} alt="" />
+                    </Link>
                   </div>
                 </div>
 

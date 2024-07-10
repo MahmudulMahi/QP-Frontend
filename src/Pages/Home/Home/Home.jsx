@@ -20,6 +20,7 @@ import SwiperForStory from '../SwiperFroStory/SwiperForStory';
 import PostCard from '../PostCard/PostCard';
 import axios from 'axios';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import ColorChanger from '../../StoryPage/StoryPage/colorbg/Bgcolor';
 
 
 const Home = () => {
@@ -73,6 +74,7 @@ const Home = () => {
         {
           data.map(adata=><PostCard key={adata._id} adata={adata}></PostCard>)
         }
+        <ColorChanger></ColorChanger>
       </div>
       <div className='col-span-2 '>
 

@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
         element:<CreateStoryType></CreateStoryType>
       },
       {
-        path:'/text-story',
+        path:'/story-type/text-story',
         element:<TextStory></TextStory>
       }
     ]
