@@ -80,7 +80,7 @@ const Navber = () => {
 
 
       {/* Large device view */}
-      <div className="hidden  lg:flex justify-between w-full">
+      <div className="hidden  lg:flex justify-between w-full bg-[#FFFFFF] shadow-xl">
         <div className="flex items-center">
           <img className='mr-6' src={logo} alt="" />
           <img className='hidden lg:block w-80' src={searchber} alt="" />

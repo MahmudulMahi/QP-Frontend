@@ -12,6 +12,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 const SwiperForStory = () => {
   const [slides, setSlides] = useState([]);
@@ -52,10 +53,25 @@ const SwiperForStory = () => {
           className="mySwiper"
         >
 
-          <SwiperSlide>
-            <img className='w-[200px]' src="https://i.ibb.co/nfMh0tJ/Add-story.png" />
-          </SwiperSlide>
 
+          {/* <div>
+            
+            <SwiperSlide>
+              <img className='w-[200px]' src="https://i.ibb.co/T2cpBd5/888.jpg" />
+            </SwiperSlide>
+          
+            <Link to='/llll'>
+            <button className="btn btn-secondary">Secondary</button>
+            </Link>
+          </div> */}
+          <SwiperSlide>
+            <div className='flex flex-col items-center relative'>
+              <img className='w-[200px] h-[270px] rounded-md' src="https://i.ibb.co/T2cpBd5/888.jpg" alt="First Slide" />
+              <Link to='/story-type'>
+                <button className="btn btn-secondary absolute -bottom-5 right-14  ">Add Story</button>
+              </Link>
+            </div>
+          </SwiperSlide>
 
 
           {
