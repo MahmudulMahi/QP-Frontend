@@ -54,7 +54,7 @@ const Registration = () => {
   };
 
   return (
-    <div className="hero bg-[#183a3ae0] min-h-screen">
+    <div className="hero bg-[#0B3243] min-h-screen">
       <div className="md:hero-content flex-col lg:flex-row p-2 mt-5 text-left">
         <div className="w-9/12">
           <h1 className="text-xl md:text-5xl font-bold text-white">

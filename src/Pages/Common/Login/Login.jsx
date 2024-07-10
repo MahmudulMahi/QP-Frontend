@@ -23,7 +23,7 @@ const Login = () => {
 
   }
   return (
-    <div className="hero bg-[#183a3ae0] min-h-screen">
+    <div className="hero bg-[#0B3243] min-h-screen">
       <div className="hero-content flex-col lg:flex-row">
         <div className="text-center lg:text-left w-9/12">
           <h1 className="text-5xl font-bold text-white">Welcome to the first <br />  decentralised Social Network <br /> in the world</h1>

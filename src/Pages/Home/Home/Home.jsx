@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import userlogo from '../../../assets/homeimg/Ellipse 2 (1).png'
 import menulogo1 from '../../../assets/homeimg/Map_duotone_line.png'
 import menulogo2 from '../../../assets/homeimg/Group.png'
@@ -18,9 +18,23 @@ import Contact from '../Contact/Contact';
 import PostSomething from '../PostSomething/PostSomething';
 import SwiperForStory from '../SwiperFroStory/SwiperForStory';
 import PostCard from '../PostCard/PostCard';
+import axios from 'axios';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 
 const Home = () => {
+  const { user } = useContext(AuthContext)
+  const [data,setData]=useState([])
+
+  console.log('yy',data);
+
+  useEffect(()=>{
+
+    axios.get(`http://localhost:5000/api/save-post`)
+    .then(res=>{
+      setData(res.data)
+    })
+  },[])
   return (
     <div className='grid grid-cols-12 gap-2'>
 
@@ -56,7 +70,9 @@ const Home = () => {
       <div className='col-span-6 '>
         <PostSomething></PostSomething>
         <SwiperForStory></SwiperForStory>
-        <PostCard></PostCard>
+        {
+          data.map(adata=><PostCard key={adata._id} adata={adata}></PostCard>)
+        }
       </div>
       <div className='col-span-2 '>
 

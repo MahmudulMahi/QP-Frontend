@@ -13,7 +13,11 @@ import statusicon from '../../../assets/homeimg/Group 534.png'
 import { SlLike } from "react-icons/sl";
 
 
-const PostCard = () => {
+const PostCard = ({adata}) => {
+
+  console.log('uu',adata);
+
+  const {name,image,email,profilePic,reactions,time,comments}=adata
   const [isCommentSectionVisible, setIsCommentSectionVisible] = useState(false);
 
   const toggleCommentSection = () => {
@@ -25,12 +29,13 @@ const PostCard = () => {
         <div>
           <div className='flex items-center gap-3'>
             <div>
-              <img src={img} alt="" />
+              {/* <img src={img} alt="" /> */}
+             <img className='w-12 h-12 rounded-full' src={profilePic} alt="" />
             </div>
             <div>
-              <p>Memes Group</p>
+              <p>{name}</p>
               <div className='flex items-center'>
-                <p className='mr-2'>1h.</p>
+                <p className='mr-2'>{time}</p>
                 <FaEarthAmericas />
               </div>
             </div>
@@ -41,12 +46,12 @@ const PostCard = () => {
           <LiaTimesCircleSolid className='w-10 h-10' />
         </div>
       </div>
-      <img className='mt-4' src={coverimg} alt="" />
+      <img className='mt-4' src={image} alt="" />
 
       <div className='flex justify-between mt-2 px-3'>
         <div className='flex items-center gap-1'>
           <img src={iconhaha} alt="" />
-          <p>444</p>
+          <p>{reactions}</p>
         </div>
         <div className='flex gap-3'>
           <img src={iconmessage} alt="" />
@@ -79,7 +84,7 @@ const PostCard = () => {
               <div className=''>
                 <div className='bg-[#F0F2F5] rounded-xl p-2'>
                   <p className='font-medium'>Nafiul islam</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a laoreet tortor. Duis malesuada nunc sed faucibus pellentes  Proin odio nulla, rhoncus in dictum in, tincidunt vel l</p>
+                  <p>{comments}</p>
                 </div>
 
                 {/* <img src={doticon} alt="" /> */}

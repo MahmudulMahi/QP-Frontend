@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Alice Johnson",   
+    "email":"mdmahmudulislam0000@gmail.com",
+    "time": "2h",
+    "profilePic": "https://i.ibb.co/qm92vBw/Ellipse-1773.png",
+    "image": "https://i.ibb.co/yP4JTbd/Frame-34746.png",
+    "reactions": 18,
+    "comments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a laoreet tortor. Duis malesuada nunc sed faucibus pellentes  Proin odio nulla, rhoncus in dictum in, tincidunt vel l"
+  },
+  {
+    "name": "Bob Smith",
+    "email":"mdmahmudulislam0000@gmail.com",
+    "time": "5h",
+    "profilePic": "https://i.ibb.co/qm92vBw/Ellipse-1773.png",
+    "image": "https://i.ibb.co/yP4JTbd/Frame-34746.png",
+    "reactions": 44,
+    "comments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a laoreet tortor. Duis malesuada nunc sed faucibus pellentes  Proin odio nulla, rhoncus in dictum in, tincidunt vel l"
+  },
+  {
+    "name": "Charlie Brown",
+    "email":"mdmahmudulislam0000@gmail.com",
+    "time": "4h",
+    "profilePic": "https://i.ibb.co/QPnw51k/Frame-36-3.png",
+    "image": "https://i.ibb.co/R9b1M25/image-383.png",
+    "reactions": 68,
+    "comments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a laoreet tortor. Duis malesuada nunc sed faucibus pellentes  Proin odio nulla, rhoncus in dictum in, tincidunt vel l"
+  },
+  {
+    "name": "Dana White",
+    "email":"anik.bvadd@pakizatvl.com",
+    "time": "7h",
+    "profilePic": "https://i.ibb.co/QPnw51k/Frame-36-3.png",
+    "image": "https://i.ibb.co/R9b1M25/image-383.png",
+    "reactions": 9,
+    "comments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a laoreet tortor. Duis malesuada nunc sed faucibus pellentes  Proin odio nulla, rhoncus in dictum in, tincidunt vel l"
+  },
+  {
+    "name": "Eve Adams",
+    "email":"anik.bvadd@pakizatvl.com",
+    "time": "3h",
+    "profilePic": "https://i.ibb.co/qm92vBw/Ellipse-1773.png",
+    "image": "https://i.ibb.co/yP4JTbd/Frame-34746.png",
+    "reactions": 17,
+    "comments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a laoreet tortor. Duis malesuada nunc sed faucibus pellentes  Proin odio nulla, rhoncus in dictum in, tincidunt vel l"
+  }
+]
