@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { BiShow } from "react-icons/bi";
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
   const {signIn}=useContext(AuthContext)
   const navigate=useNavigate()
-  const handleLogin = e =>{
+  const handleLogin =async(e) =>{
     e.preventDefault()
     const form=e.target
     const email=form.email.value
@@ -15,9 +16,11 @@ const Login = () => {
     signIn(email,password)
     .then(result=>{
       const user=result.user;
-      console.log(user);
+      console.log("tt",user.email);
       navigate("/")
     })
+    
+
   }
   return (
     <div className="hero bg-[#183a3ae0] min-h-screen">

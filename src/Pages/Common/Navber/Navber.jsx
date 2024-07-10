@@ -20,9 +20,19 @@ import smallicon4 from "../../../assets/navberimg/Frame 35.png";
 import smallicon5 from "../../../assets/navberimg/Group 1000003341.png";
 import user from "../../../assets/navberimg/Ellipse 2 (1).png";
 import { Link, NavLink } from 'react-router-dom';
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navber = () => {
+
+  const { user, logOut } = useContext(AuthContext)
+  console.log(user);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => { })
+      .catch(error => console.log(error))
+  }
   const [isOpenUserDropdown, setIsOpenUserDropdown] = useState(false);
   const [isOpenDropdownSm, setIsOpenDropdownSm] = useState(false);
 
@@ -54,14 +64,17 @@ const Navber = () => {
         <NavLink><img className='w-6 h-6' src={smallicon4} alt="" /></NavLink>
         <NavLink><img className='w-6 h-6' src={smallicon5} alt="" /></NavLink>
         <button onClick={toggleDropdownSm} className="flex items-center">
-        <img className='w-6 h-6' src={user} alt="Profile" />
-      </button>
-      {isOpenDropdownSm && (
-        <div className="absolute right-0 mt-40 w-48 bg-white border rounded shadow-lg">
-          <NavLink to="/login" className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Login</NavLink>
-          <NavLink to="/registration" className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Register</NavLink>
-        </div>
-      )}
+          <img className='w-6 h-6' src={user} alt="Profile" />
+        </button>
+        {isOpenDropdownSm && (
+          <div className="absolute right-0 mt-40 w-48 bg-white border rounded shadow-lg">
+            {user?.email ?
+              <NavLink to="" onClick={handleLogOut} className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</NavLink>
+              : <NavLink to="/login" className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Login</NavLink>
+            }
+            <NavLink to="/registration" className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Register</NavLink>
+          </div>
+        )}
       </div>
 
 
@@ -74,7 +87,7 @@ const Navber = () => {
         </div>
         <div className="navbar-center hidden lg:flex ">
           <div className='flex space-x-[50px] ml-64'>
-        
+
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -86,14 +99,14 @@ const Navber = () => {
                 <img className='w-6 h-6 mb-1' src={homebtn} alt="Home" />
               </button>
             </NavLink>
-            
+
             <NavLink><button className="btn btn-ghost"><img className='w-6 h-6' src={navicon1} alt="" /></button></NavLink>
             <NavLink><button className="btn btn-ghost"><img className='w-6 h-6' src={navicon2} alt="" /></button></NavLink>
-            
+
             <NavLink><button className="btn btn-ghost"><img className='w-6 h-6' src={navicon3} alt="" /></button></NavLink>
-            
+
             <NavLink><button className="btn btn-ghost"><img className='w-6 h-6' src={navicon4} alt="" /></button></NavLink>
-            
+
           </div>
         </div>
         <div className="navbar-end hidden lg:flex">
@@ -102,15 +115,18 @@ const Navber = () => {
             <img className='max-w-12 max-h-12' src={notification} alt="" />
             {/* <img className='max-w-12 max-h-12' src={profile} alt="" /> */}
             <button onClick={toggleDropdown} className="flex items-center">
-        <img className='max-w-12 max-h-12' src={profile} alt="Profile" />
-      </button>
+              <img className='max-w-12 max-h-12' src={profile} alt="Profile" />
+            </button>
 
-      {isOpenUserDropdown && (
-        <div className="absolute  mt-12 w-36 bg-white border rounded shadow-lg">
-         <Link to='/login'> <button className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Login</button></Link>
-          <Link to='/registration'><button className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Register</button></Link>
-        </div>
-      )}
+            {isOpenUserDropdown && (
+              <div className="absolute  mt-12 w-36 bg-white border rounded shadow-lg">
+                {user?.email ?
+                  <Link to=''>  <button onClick={handleLogOut} className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">LogOut</button></Link>
+                  :<Link to='/login'> <button className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Login</button></Link>
+                }
+                <Link to='/registration'><button className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Register</button></Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
