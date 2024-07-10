@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BiShow } from "react-icons/bi";
+import { AuthContext } from '../../../Provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const {signIn}=useContext(AuthContext)
+  const navigate=useNavigate()
+  const handleLogin = e =>{
+    e.preventDefault()
+    const form=e.target
+    const email=form.email.value
+    const password=form.password.value
+    console.log(email,password);
+    signIn(email,password)
+    .then(result=>{
+      const user=result.user;
+      console.log(user);
+      navigate("/")
+    })
+  }
   return (
     <div className="hero bg-[#183a3ae0] min-h-screen">
       <div className="hero-content flex-col lg:flex-row">
@@ -13,13 +30,13 @@ const Login = () => {
           <button className=" bg-[#307777] px-8 py-4 rounded-md text-white ">Register Now!</button>
         </div>
         <div className=" bg-base-100  max-w-sm shrink-0 shadow-2xl rounded-md">
-          <form className="card-body">
+          <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <p className='text-[#307777] font-bold text-lg'>Login to your Account</p>
               <label className="label font-semibold mt-3">
                 <span className="label-text">Email Address </span>
               </label>
-              <input type="email" placeholder="email" className="border-[1px] border-current p-2 rounded-md" required />
+              <input type="email" name="email" placeholder="email" className="border-[1px] border-current p-2 rounded-md" required />
             </div>
             <div className="form-control">
               <label className="label font-semibold relative">
@@ -29,7 +46,7 @@ const Login = () => {
                 </div>
               </label>
 
-              <input type="password" placeholder="password" className="border-[1px] border-current p-2 rounded-md" required />
+              <input type="password" name="password" placeholder="password" className="border-[1px] border-current p-2 rounded-md" required />
               <div className='flex justify-between'>
                 <label className=" label">
 
