@@ -74,7 +74,7 @@ const Home = () => {
         {
           data.map(adata=><PostCard key={adata._id} adata={adata}></PostCard>)
         }
-        <ColorChanger></ColorChanger>
+      
       </div>
       <div className='col-span-2 '>
 

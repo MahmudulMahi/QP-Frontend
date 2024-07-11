@@ -1,11 +1,44 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import crstory from '../../../../../assets/storyimg/Frame 1000003665.png'
 import textimg from '../../../../../assets/storyimg/Frame 1000003668.png'
 import photoimg from '../../../../../assets/storyimg/Frame 1000003668 (1).png'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_IMAGEBB_KEY
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 const CreateStoryType = () => {
+  const [image, setImage] = useState(null);
+  console.log("oo", image);
+
+  const handleImage = async (e) => {
+
+    e.preventDefault()
+
+    const formData = new FormData();
+    formData.append('image', image);
+
+    try {
+      // Send data to backend using Axios
+      const response = await axios.post(image_hosting_api, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      // Handle response if needed
+      console.log('Response:', response.data);
+    } catch (error) {
+      // Handle error if needed
+      console.error('Error:', error);
+    }
+
+
+  }
+
+
   return (
+
     <div className='grid grid-cols-12  gap-3' style={{ minHeight: 'calc(100vh - 150px)' }}>
       <div className='col-span-3 bg-white shadow-xl '>
         <div className='flex flex-col justify-between h-full pb-4 '>
@@ -24,14 +57,22 @@ const CreateStoryType = () => {
             <div className="hero-content text-center">
               <div className="max-w-md">
                 <div className='flex gap-2'>
-                  <div>
-                    
-                    <img src={textimg} alt="" />
-                    
+                  <div className=''>
+                    <form onSubmit={handleImage}>
+                      <label>
+                        <img src={textimg} alt="" />
+                        <input type="file" className='hidden' onChange={(e) => setImage(e.target.files[0])} />
+                      </label>
+                      {image?
+                        <button type="submit" className="mt-3 bg-[#307777] w-full p-3 rounded">Upload Image</button>
+                        :""
+                      }
+                    </form>
+
                   </div>
                   <div>
-                  <Link to='text-story'>
-                    <img src={photoimg} alt="" />
+                    <Link to='text-story'>
+                      <img className='' src={photoimg} alt="" />
                     </Link>
                   </div>
                 </div>
@@ -43,6 +84,7 @@ const CreateStoryType = () => {
         </div>
       </div>
     </div>
+
   );
 };
 
