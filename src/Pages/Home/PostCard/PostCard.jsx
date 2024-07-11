@@ -24,7 +24,7 @@ const PostCard = ({adata}) => {
     setIsCommentSectionVisible(!isCommentSectionVisible);
   };
   return (
-    <div className='bg-white shadow-xl mt-5 px-3'>
+    <div className='bg-white shadow-xl mt-5 px-3 '>
       <div className=' flex items-center justify-between '>
         <div>
           <div className='flex items-center gap-3'>

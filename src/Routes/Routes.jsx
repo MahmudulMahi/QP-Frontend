@@ -8,6 +8,7 @@ import Login from "../Pages/Common/Login/Login";
 import Registration from "../Pages/Common/Registration/Registration";
 import CreateStoryType from "../Pages/StoryPage/StoryPage/StoryPage/CreateStoryType/CreateStoryType";
 import TextStory from "../Pages/StoryPage/TextStory/TextStory";
+import SingleStory from "../Pages/StoryPage/SingleStory/SingleStory";
 
 export const router = createBrowserRouter([
   {
@@ -23,9 +24,15 @@ export const router = createBrowserRouter([
         element:<CreateStoryType></CreateStoryType>
       },
       {
+        path:'/story-type/:id',
+        element:<SingleStory></SingleStory>
+        
+      },
+      {
         path:'/story-type/text-story',
         element:<TextStory></TextStory>
-      }
+      },
+
     ]
     
   },
